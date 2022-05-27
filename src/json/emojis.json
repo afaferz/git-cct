@@ -1,0 +1,85 @@
+[{
+        "name": "Test",
+        "code": ":test:",
+        "img": "🧪",
+        "color": "#fff000",
+        "description": "Usado para criação, ajustes e refatoração de testes. <br /> Ex: <code>test: 🧪 [mensagem]</code>"
+    },
+    {
+        "name": "Feat",
+        "code": ":feat:",
+        "img": "🛠",
+        "color": "#fff000",
+        "description": "Usado para criação de nova funcionalidade <br /> Ex: <code>feat: 🛠 [mensagem]</code>"
+    },
+    {
+        "name": "Refactor",
+        "code": ":refactor:",
+        "img": "♻️",
+        "color": "red",
+        "description": "Usado para refatoração de código sem alterar sua funcionalidade, apenas melhoria. <br /> Ex: <code>refactor: ♻️ [mensagem]</code>"
+    },
+    {
+        "name": "Fix",
+        "code": ":fix:",
+        "img": "🩹",
+        "color": "blue",
+        "description": "Usado para corrigir algum problema no código e/ou funcionalidade (bugs) <br /> Ex: <code>fix: 🩹 [mensagem]</code>"
+    },
+    {
+        "name": "Chore",
+        "code": ":chore:",
+        "img": "🏝",
+        "color": "#a8d8d8",
+        "description": "Usado quando não há alterações no código fonte mas sim no ambiente de desenvolvimento (ex: Instalação de libs, configuração do package.json, configuração de Docker, DB, etc) <br /> Ex: <code>chore: 🏝 [mensagem]</code>"
+    },
+    {
+        "name": "Hotfix",
+        "code": ":hotfix:",
+        "img": "🚑",
+        "color": "#fff890",
+        "description": "Usado para correção de bug/problemas em produção (considerado grave) <br /> Ex: <code>hotfix: 🚑    [mensagem]"
+    },
+    {
+        "name": "Cherry-pick",
+        "code": ":cherry-pick:",
+        "img": "💉",
+        "color": "#fff890",
+        "description": "Usado para atualizar um commit em uma outra branch selecionada <br /> Ex: <code>cherry-pick: 💉    [mensagem]"
+    },
+    {
+        "name": "Docs",
+        "code": ":docs:",
+        "img": "📑",
+        "color": "#fff890",
+        "description": "Usado para atualizar documentações como o arquivo README.md <br /> Ex: <code>docs: 📑 [mensagem]</code>"
+    },
+    {
+        "name": "Build",
+        "code": ":build:",
+        "img": "🚧",
+        "color": "#fff890",
+        "description": "Usado para atualizar ou modificar ferramentas de build <br /> Ex: <code>build: 🚧 [mensagem]</code>"
+    },
+    {
+        "name": "Style",
+        "code": ":style:",
+        "img": "🖌",
+        "color": "#fff890",
+        "description": "Usado para atualizar estilos e arquivos de estilização <br /> Ex: <code>style: 🖌 [mensagem]</code>"
+    },
+    {
+        "name": "Ci",
+        "code": ":ci:",
+        "img": "⚙",
+        "color": "#fff890",
+        "description": "Usado para atualizar arquivos e configurações de CI <br /> Ex: <code>ci: ⚙ [mensagem]</code>"
+    },
+    {
+        "name": "Perf",
+        "code": ":perf:",
+        "img": "🚀",
+        "color": "#fff890",
+        "description": "Usado para atualizar e/ou configurar performance <br /> Ex: <code>perf: 🚀 [mensagem]</code>"
+    }
+]
