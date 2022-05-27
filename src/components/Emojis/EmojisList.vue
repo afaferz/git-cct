@@ -8,10 +8,12 @@
         :css="false"
         class="wrapper"
     >
-        <EmojiCard v-for="item in emojis" :key="item.code" :emoji="item" />
-        <div v-show="emojis.length === 0" class="no-results">
-            No Results
-        </div>
+        <EmojiCard
+            v-for="item in emojis"
+            :key="item.code"
+            :emoji="item"
+        />
+        <div v-show="emojis.length === 0" class="no-results">No Results</div>
     </TransitionGroup>
 </template>
 
