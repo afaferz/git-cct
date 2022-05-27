@@ -1,8 +1,17 @@
 <template>
-    <article class="card-wrapper">
-        <div class="card-content" :style="{ '--bg-color': emojiItem.color }">
-            <figure class="card-emoji">
+    <article
+        class="card-wrapper"
+        tabindex="0"
+        @keyup.ctrl.capture="clipboardEmoji(emojiItem.img, emojiItem.name)"
+    >
+        <div
+            class="card-content"
+            :style="{ '--bg-color': emojiItem.color }"
+            tabindex="-1"
+        >
+            <figure class="card-emoji" tabindex="-1">
                 <button
+                    tabindex="-1"
                     :data-clipboard="emojiItem.img"
                     @click="clipboardEmoji(emojiItem.img, emojiItem.name)"
                 >
@@ -11,10 +20,11 @@
                     </span>
                 </button>
             </figure>
-            <div class="card-description">
+            <div class="card-description" tabindex="-1">
                 <button
                     class="card-description__emoji-name"
                     @click.stop="clipboardEmoji(emojiItem.img, emojiItem.name)"
+                    tabindex="-1"
                 >
                     <code>{{ emojiItem.code }}</code>
                 </button>
@@ -44,7 +54,7 @@ export default defineComponent({
                     ipsum dolorLorem ipsum dolorLorem ipsum dolorLorem ipsum
                     dolorLorem ipsum dolor`,
             }),
-        },
+        }
     },
     setup(props) {
         const store = useStore();
@@ -52,8 +62,8 @@ export default defineComponent({
         const alert: any = inject("$alert");
 
         const clipboardEmoji = (emoji: string, name: string) => {
-            const patternName = name.toLowerCase()
-            const message = `git commit -m "${patternName}: ${emoji} "`
+            const patternName = name.toLowerCase();
+            const message = `git commit -m "${patternName}: ${emoji} "`;
             navigator.clipboard.writeText(message);
             store.commit("SET_CLIPBOARD_EMOJI", message);
             alert.info(`<code>${message}</code> coppied to clipboard :D`);
@@ -78,6 +88,11 @@ export default defineComponent({
     max-width: 100%;
     padding: 1.25rem;
     margin: 1rem 0;
+    &:focus {
+        border: 2px solid black;
+        border-radius: 5px;
+        outline: none;
+    }
     @media screen and(min-width: 768px) {
         flex-basis: 50%;
     }
