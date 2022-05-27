@@ -1,15 +1,20 @@
 <template>
     <div class="control-wrapper">
         <div class="input-wrapper">
-            <input type="text" v-model="search" placeholder="Search emoji..." />
-            <kbd>Ctrl K</kbd>
+            <input
+                type="text"
+                v-model="search"
+                placeholder="Search emoji..."
+                ref="inputControl"
+            />
+            <kbd>Ctrl I</kbd>
         </div>
         <div class="display-list-wrapper">
             <div class="display-list__button">
-                <button>AS</button>
+                <button tabindex="-1">AS</button>
             </div>
             <div class="display-list__button">
-                <button>AS</button>
+                <button tabindex="-1">AS</button>
             </div>
         </div>
     </div>
@@ -17,12 +22,18 @@
 
 <script lang="ts">
 import useBreakpoints from "@/hooks/useBreakpoints";
-import { computed, defineComponent, WritableComputedRef } from "vue";
+import {
+    computed,
+    defineComponent,
+    ref,
+    WritableComputedRef,
+    onMounted,
+} from "vue";
 import { useStore } from "vuex";
 
 export default defineComponent({
     name: "MInput",
-    setup() {
+    setup(_props) {
         const { type } = useBreakpoints();
         const store = useStore();
         const search: WritableComputedRef<string> = computed({
@@ -33,9 +44,24 @@ export default defineComponent({
                 store.commit("SET_SEARCH", value);
             },
         });
+        const inputControl = ref(document.createElement("input"));
+        onMounted(() => {
+            const searchKey = (event: any) => {
+                const { ctrlKey, key } = event;
+
+                if (ctrlKey && key === "i") {
+                    event.preventDefault();
+
+                    event.stopPropagation();
+                    return inputControl.value.focus();
+                }
+            };
+            window.addEventListener("keydown", searchKey);
+        });
         return {
             type,
             search,
+            inputControl,
         };
     },
 });
