@@ -11,8 +11,8 @@ import MAlert from "./components/Custom/MAlert.vue";
 export default defineComponent({
     components: {
         MHeader,
-        MAlert
-    }
+        MAlert,
+    },
 });
 </script>
 
