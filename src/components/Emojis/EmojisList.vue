@@ -8,13 +8,12 @@
         :css="false"
         class="wrapper"
     >
-        <EmojiCard
-            v-for="item in emojis"
-            :key="item.code"
-            :emoji="item"
-        />
+        <EmojiCard v-for="item in emojis" :key="item.code" :emoji="item" />
         <div v-show="emojis.length === 0" class="no-results">No Results</div>
     </TransitionGroup>
+    <Teleport to="body">
+        <MModalGit />
+    </Teleport>
 </template>
 
 <script lang="ts">
@@ -26,12 +25,14 @@ import {
 } from "vue";
 import { useStore } from "vuex";
 const EmojiCard = defineAsyncComponent(() => import("../Cards/EmojiCard.vue"));
+const MModalGit = defineAsyncComponent(() => import("../Modal/MModalGit.vue"));
 import gsap from "gsap";
 
 export default defineComponent({
     name: "EmojisList",
     components: {
         EmojiCard,
+        MModalGit,
     },
     setup() {
         const store = useStore();
