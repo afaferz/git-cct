@@ -2,7 +2,7 @@
     <article
         class="card-wrapper"
         tabindex="0"
-        @keyup.ctrl.capture="clipboardEmoji(emojiItem.img, emojiItem.name)"
+        @keyup.ctrl.capture="generateCommit(emojiItem.img, emojiItem.name)"
     >
         <div
             class="card-content"
@@ -13,7 +13,7 @@
                 <button
                     tabindex="-1"
                     :data-clipboard="emojiItem.img"
-                    @click="clipboardEmoji(emojiItem.img, emojiItem.name)"
+                    @click="generateCommit(emojiItem.img, emojiItem.name)"
                 >
                     <span>
                         {{ emojiItem.img }}
@@ -23,7 +23,7 @@
             <div class="card-description" tabindex="-1">
                 <button
                     class="card-description__emoji-name"
-                    @click.stop="clipboardEmoji(emojiItem.img, emojiItem.name)"
+                    @click.stop="generateCommit(emojiItem.img, emojiItem.name)"
                     tabindex="-1"
                 >
                     <code>{{ emojiItem.code }}</code>
@@ -54,24 +54,25 @@ export default defineComponent({
                     ipsum dolorLorem ipsum dolorLorem ipsum dolorLorem ipsum
                     dolorLorem ipsum dolor`,
             }),
-        }
+        },
     },
     setup(props) {
         const store = useStore();
         const emojiItem = ref(props.emoji);
         const alert: any = inject("$alert");
 
-        const clipboardEmoji = (emoji: string, name: string) => {
+        const generateCommit = (emoji: string, name: string) => {
             const patternName = name.toLowerCase();
-            const message = `git commit -m "${patternName}: ${emoji} "`;
-            navigator.clipboard.writeText(message);
-            store.commit("SET_CLIPBOARD_EMOJI", message);
-            alert.info(`<code>${message}</code> coppied to clipboard :D`);
+            store.commit("modalGit/SET_OPEN", true);
+            store.commit("modalGit/SET_COMMIT", {
+                pattern: patternName,
+                emoji: emoji,
+            });
         };
 
         return {
             emojiItem,
-            clipboardEmoji,
+            generateCommit,
         };
     },
 });
