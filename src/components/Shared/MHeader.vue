@@ -17,7 +17,7 @@
                 </li>
                 <li>
                     <code>CTRL + Space</code>
-                    <span>Copiar convenção</span>
+                    <span>Selecionar uma convenção</span>
                 </li>
                 <li>
                     <code>CRTL + I</code>
