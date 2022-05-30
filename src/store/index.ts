@@ -2,6 +2,7 @@ import { createStore } from 'vuex'
 import Emoji from '../json/emojis.json'
 import { IEmoji } from '@/@types/Emoji'
 import alert from './alert'
+import modalGit from './modal-git'
 
 export default createStore({
     state: {
@@ -25,9 +26,6 @@ export default createStore({
         },
         SET_EMOJIS(state, payload) {
             state.emojis = payload
-        },
-        SET_CLIPBOARD_EMOJI(state, payload) {
-            state.clipboardEmoji = payload
         }
     },
     actions: {
@@ -41,6 +39,7 @@ export default createStore({
         }
     },
     modules: {
-        alert: alert
+        alert: alert,
+        modalGit: modalGit
     }
 })
