@@ -4,10 +4,18 @@
             class="modal-overlay"
             v-show="open"
             :class="{ active: open }"
-            @click.stop.self="open = !open; message = ''"
+            @click.stop.self="
+                open = !open;
+                message = '';
+            "
         >
             <div class="modal" @keypress.ctrl.enter="copyCommit">
-            <span class="preview__title">PRÉVIA</span>
+                <div class="modal-preview">
+                    <span class="preview__command">
+                        Pressione <kbd>CTRL + Enter</kbd> para copiar commit
+                    </span>
+                    <span class="preview__title">PRÉVIA</span>
+                </div>
                 <div class="git-commit">
                     <code>
                         {{ fullCommit }}
@@ -23,7 +31,12 @@
                         v-model="message"
                     ></textarea>
                 </fieldset>
-                <button @click.self="copyCommit" class="modal-button button--copy">COPIAR</button>
+                <button
+                    @click.self="copyCommit"
+                    class="modal-button button--copy"
+                >
+                    COPIAR
+                </button>
             </div>
         </div>
     </transition>
@@ -119,14 +132,35 @@ export default defineComponent({
     animation: slide 0.3s;
 }
 
-.preview__title {
-    font-size: 1.5rem;
-    background-color: #8d8d8d;
-    padding: .85rem;
-    color: #fefefe;
-    font-weight: 900;
+.modal-preview {
     margin-bottom: 20px;
-    width: 60px;
+    font-size: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    .preview__title {
+        background-color: #8d8d8d;
+        padding: 0.85rem;
+        color: #fefefe;
+        font-weight: 900;
+        margin-bottom: 15px;
+        width: 60px;
+    }
+    .preview__command {
+        padding: 1rem;
+        width: 270px;
+        margin: 10px 0;
+        display: inline-block;
+        background-color: #f6f8fa;
+        color: #020202;
+        border-radius: 4px;
+        padding: 0.5rem 0.7rem;
+        border-radius: 4px;
+        box-shadow: 0px 4px 5px rgba($color: #000000, $alpha: 0.55);
+        font-size: 85%;
+        word-wrap: normal;
+        white-space: pre;
+        margin-bottom: 15px;
+    }
 }
 .git-commit {
     box-sizing: border-box;
@@ -145,7 +179,7 @@ export default defineComponent({
     box-sizing: border-box;
     legend {
         font-size: 1.5rem;
-        padding: .65rem;
+        padding: 0.65rem;
         color: #fefefe;
         font-weight: 900;
         background-color: #2c3e50;
@@ -168,7 +202,7 @@ export default defineComponent({
     border: none;
     border-radius: 5px;
     font-size: 1.575rem;
-    padding: .75rem;
+    padding: 0.75rem;
     color: #2c3e50;
     cursor: pointer;
     font-weight: bold;
