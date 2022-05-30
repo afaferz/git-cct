@@ -43,7 +43,7 @@ export default defineComponent({
     padding: 0.75rem;
     line-height: 1.5;
     transition: all 0.4s ease-in-out;
-    z-index: 20;
+    z-index: 99;
     @media screen and (min-width: 768px) {
         width: 55%;
     }
