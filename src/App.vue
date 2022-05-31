@@ -9,6 +9,9 @@ import { defineComponent } from "vue";
 import MHeader from "./components/Shared/MHeader.vue";
 import MAlert from "./components/Custom/MAlert.vue";
 export default defineComponent({
+    title() {
+        return `GIT CCT | Um gerador de 'conventional commit' e templates GIT`;
+    },
     components: {
         MHeader,
         MAlert,

@@ -9,6 +9,9 @@
                 About
             </router-link>
         </nav>
+        <div class="brand">
+            <h1>GIT CCT</h1>
+        </div>
         <div class="navigation-control" v-if="type !== 'xs'">
             <ul>
                 <li>
@@ -64,12 +67,19 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 header.header {
-    min-height: 40vh;
+    min-height: 45vh;
     background: #2c3e50;
+    height: auto;
+    box-sizing: border-box;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+}
+.brand {
+    font-size: 6rem;
+    color: #fefefe;
+    margin: 1rem 0;
 }
 .nav__button {
     position: fixed;
