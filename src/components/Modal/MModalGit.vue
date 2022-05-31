@@ -74,7 +74,7 @@ export default defineComponent({
         // Full commit to clipboard
         const fullCommit = computed(
             () =>
-                `git commit -m "${commit.value.pattern}: ${commit.value.emoji} ${message.value}"`
+                `git commit -m "${commit.value.pattern}: ${commit.value.emoji}  ${message.value}"`
         );
 
         const copyCommit = () => {
