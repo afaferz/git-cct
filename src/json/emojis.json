@@ -2,28 +2,28 @@
         "name": "Test",
         "code": ":test:",
         "img": "🧪",
-        "color": "#fff000",
+        "color": "#b2edba",
         "description": "Usado para criação, ajustes e refatoração de testes. <br /> Ex: <code>test: 🧪 [mensagem]</code>"
     },
     {
         "name": "Feat",
         "code": ":feat:",
         "img": "🛠",
-        "color": "#fff000",
+        "color": "#c0ccd1",
         "description": "Usado para criação de nova funcionalidade <br /> Ex: <code>feat: 🛠 [mensagem]</code>"
     },
     {
         "name": "Refactor",
         "code": ":refactor:",
         "img": "♻️",
-        "color": "red",
+        "color": "#c4fcae",
         "description": "Usado para refatoração de código sem alterar sua funcionalidade, apenas melhoria. <br /> Ex: <code>refactor: ♻️ [mensagem]</code>"
     },
     {
         "name": "Fix",
         "code": ":fix:",
         "img": "🩹",
-        "color": "blue",
+        "color": "#dbbd97",
         "description": "Usado para corrigir algum problema no código e/ou funcionalidade (bugs) <br /> Ex: <code>fix: 🩹 [mensagem]</code>"
     },
     {
@@ -37,49 +37,49 @@
         "name": "Hotfix",
         "code": ":hotfix:",
         "img": "🚑",
-        "color": "#fff890",
+        "color": "#de6e5f",
         "description": "Usado para correção de bug/problemas em produção (considerado grave) <br /> Ex: <code>hotfix: 🚑    [mensagem]"
     },
     {
         "name": "Cherry-pick",
         "code": ":cherry-pick:",
         "img": "💉",
-        "color": "#fff890",
+        "color": "#edafa7",
         "description": "Usado para atualizar um commit em uma outra branch selecionada <br /> Ex: <code>cherry-pick: 💉    [mensagem]"
     },
     {
         "name": "Docs",
         "code": ":docs:",
         "img": "📑",
-        "color": "#fff890",
+        "color": "#8ddfde",
         "description": "Usado para atualizar documentações como o arquivo README.md <br /> Ex: <code>docs: 📑 [mensagem]</code>"
     },
     {
         "name": "Build",
         "code": ":build:",
         "img": "🚧",
-        "color": "#fff890",
+        "color": "#ede645",
         "description": "Usado para atualizar ou modificar ferramentas de build <br /> Ex: <code>build: 🚧 [mensagem]</code>"
     },
     {
         "name": "Style",
         "code": ":style:",
         "img": "🖌",
-        "color": "#fff890",
+        "color": "#f7aabe",
         "description": "Usado para atualizar estilos e arquivos de estilização <br /> Ex: <code>style: 🖌 [mensagem]</code>"
     },
     {
         "name": "Ci",
         "code": ":ci:",
         "img": "⚙",
-        "color": "#fff890",
+        "color": "#724541",
         "description": "Usado para atualizar arquivos e configurações de CI <br /> Ex: <code>ci: ⚙ [mensagem]</code>"
     },
     {
         "name": "Perf",
         "code": ":perf:",
         "img": "🚀",
-        "color": "#fff890",
+        "color": "#4d50ea",
         "description": "Usado para atualizar e/ou configurar performance <br /> Ex: <code>perf: 🚀 [mensagem]</code>"
     }
 ]
