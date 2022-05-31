@@ -72,7 +72,7 @@
         "name": "Ci",
         "code": ":ci:",
         "img": "⚙",
-        "color": "#724541",
+        "color": "#8b4746",
         "description": "Usado para atualizar arquivos e configurações de CI <br /> Ex: <code>ci: ⚙ [mensagem]</code>"
     },
     {
