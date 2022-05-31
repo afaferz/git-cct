@@ -1,6 +1,10 @@
 <template>
     <header class="header">
-        <button class="nav__button" @click="openNav = !openNav">menu</button>
+        <button class="nav__button" @click="openNav = !openNav">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
         <nav :class="{ active: openNav }">
             <router-link to="/" @click.stop="openNav = !openNav">
                 Home
@@ -10,7 +14,11 @@
             </router-link>
         </nav>
         <div class="brand">
-            <h1>GIT CCT</h1>
+            <img
+                :src="require('../../assets/git-branch.svg')"
+                alt="Git branch icon"
+            />
+            <h1>git CCT</h1>
         </div>
         <div class="navigation-control" v-if="type !== 'xs'">
             <ul>
@@ -77,9 +85,19 @@ header.header {
     flex-direction: column;
 }
 .brand {
-    font-size: 6rem;
+    font-size: 4.75rem;
     color: #fefefe;
-    margin: 1rem 0;
+    margin: 1rem 2rem;
+    display: inline-flex;
+    align-items: center;
+    h1 {
+        margin-left: 15px;
+    }
+    img {
+        display: block;
+        height: 15rem;
+        filter: drop-shadow(2px 4px 4px #020202ff);
+    }
 }
 .nav__button {
     position: fixed;
@@ -90,8 +108,19 @@ header.header {
     box-sizing: border-box;
     padding: 1rem;
     cursor: pointer;
+    display: flex;
+    flex-direction: column;
     z-index: 11;
     border: none;
+    border-radius: 50%;
+    span {
+        background-color: #2c3e50;
+        border-radius: 5px;
+        display: inline-block;
+        height: 8px;
+        margin: 0.265rem 0;
+        width: 100%;
+    }
 }
 nav {
     display: flex;
