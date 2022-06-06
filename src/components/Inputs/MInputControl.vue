@@ -6,6 +6,7 @@
                 v-model="search"
                 placeholder="Search emoji..."
                 ref="inputControl"
+                data-jest="input-search"
             />
             <kbd>Ctrl I</kbd>
         </div>
