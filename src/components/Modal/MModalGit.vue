@@ -21,7 +21,30 @@
                         {{ fullCommit }}
                     </code>
                 </div>
-                <fieldset class="fieldset__message">
+
+                <fieldset class="fieldset">
+                    <legend>IMPORTANT</legend>
+                    <button
+                        @click="important = !important"
+                        :class="{
+                            important: important,
+                        }"
+                        class="fieldset__button"
+                    >
+                        IMPORTANTE ( ! )
+                    </button>
+                </fieldset>
+
+                <fieldset class="fieldset">
+                    <legend>ESCOPO</legend>
+                    <input
+                        class="fieldset__input"
+                        type="text"
+                        v-model="scope"
+                    />
+                </fieldset>
+
+                <fieldset class="fieldset">
                     <legend>MENSAGEM</legend>
                     <textarea
                         name=""
@@ -43,7 +66,13 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, inject, WritableComputedRef } from "vue";
+import {
+    computed,
+    defineComponent,
+    inject,
+    ref,
+    WritableComputedRef,
+} from "vue";
 import { useStore } from "vuex";
 
 export default defineComponent({
@@ -62,6 +91,8 @@ export default defineComponent({
         });
         // Commit obj
         const commit = computed(() => store.getters["modalGit/GET_COMMIT"]);
+        const important = ref(false);
+        const scope = ref("");
         // Commit message
         const message: WritableComputedRef<string> = computed({
             get(): string {
@@ -74,7 +105,11 @@ export default defineComponent({
         // Full commit to clipboard
         const fullCommit = computed(
             () =>
-                `git commit -m "${commit.value.pattern}: ${commit.value.emoji}  ${message.value}"`
+                `git commit -m "${commit.value.pattern}${
+                    scope.value ? `(${scope.value})` : ""
+                }${important.value ? "!" : ""}: ${commit.value.emoji}  ${
+                    message.value
+                }"`
         );
 
         const copyCommit = () => {
@@ -87,6 +122,8 @@ export default defineComponent({
             open,
             message,
             commit,
+            important,
+            scope,
             fullCommit,
             copyCommit,
         };
@@ -125,7 +162,7 @@ export default defineComponent({
 
     @media screen and (min-width: 768px) {
         width: 45vw;
-        height: 60vh;
+        height: 85vh;
     }
 }
 .modal-enter-to .modal {
@@ -170,13 +207,32 @@ export default defineComponent({
     overflow: scroll;
 }
 
-.fieldset__message {
+.fieldset {
     font-family: Avenir, Helvetica, Arial, sans-serif;
     padding: 10px;
     border-radius: 5px;
     margin: 1.57rem 0;
     border-color: #2c3e50;
     box-sizing: border-box;
+    &__button {
+        all: unset;
+        padding: 1rem;
+        color: #2c3e50;
+        width: 45%;
+        text-align: center;
+        font-size: 1.5rem;
+        font-weight: 700;
+        border: 1px dashed #020202;
+        cursor: pointer;
+        &.important {
+            color: #fefefe;
+            background: #2c3e50;
+        }
+    }
+    &__input {
+        width: 45%;
+        padding: 1rem;
+    }
     legend {
         font-size: 1.5rem;
         padding: 0.65rem;
