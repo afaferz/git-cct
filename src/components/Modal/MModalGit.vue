@@ -11,9 +11,6 @@
         >
             <div class="modal" @keypress.ctrl.enter="copyCommit">
                 <div class="modal-preview">
-                    <span class="preview__command">
-                        Pressione <kbd>CTRL + Enter</kbd> para copiar commit
-                    </span>
                     <span class="preview__title">PRÉVIA</span>
                 </div>
                 <div class="git-commit">
@@ -44,6 +41,9 @@
                     />
                 </fieldset>
 
+                <span class="preview__command">
+                    Pressione <kbd>CTRL + Enter</kbd> para copiar commit
+                </span>
                 <fieldset class="fieldset">
                     <legend>MENSAGEM</legend>
                     <textarea
@@ -182,22 +182,22 @@ export default defineComponent({
         margin-bottom: 15px;
         width: 60px;
     }
-    .preview__command {
-        padding: 1rem;
-        width: 270px;
-        margin: 10px 0;
-        display: inline-block;
-        background-color: #f6f8fa;
-        color: #020202;
-        border-radius: 4px;
-        padding: 0.5rem 0.7rem;
-        border-radius: 4px;
-        box-shadow: 0px 4px 5px rgba($color: #000000, $alpha: 0.55);
-        font-size: 85%;
-        word-wrap: normal;
-        white-space: pre;
-        margin-bottom: 15px;
-    }
+}
+.preview__command {
+    padding: 1rem;
+    width: 270px;
+    margin: 10px 0;
+    display: inline-block;
+    background-color: #f6f8fa;
+    color: #020202;
+    border-radius: 4px;
+    padding: 0.5rem 0.7rem;
+    border-radius: 4px;
+    box-shadow: 0px 4px 5px rgba($color: #000000, $alpha: 0.55);
+    font-size: 1.25rem;
+    word-wrap: normal;
+    white-space: pre;
+    margin-bottom: 15px;
 }
 .git-commit {
     box-sizing: border-box;
