@@ -39,6 +39,7 @@
                         type="text"
                         v-model="scope"
                     />
+                    <button class="fieldset__button--clear" @click="scope = ''">LIMPAR</button>
                 </fieldset>
 
                 <span class="preview__command">
@@ -227,6 +228,19 @@ export default defineComponent({
         &.important {
             color: #fefefe;
             background: #2c3e50;
+        }
+    }
+    &__button--clear {
+        height: 100%;
+        margin-left: 10px;
+        padding: 0 15px;
+        color: #fefefe;
+        font-weight: 700;
+        background-color: rgb(219, 81, 81);
+        border: none;
+        cursor: pointer;
+        &:hover {
+            background-color: red;
         }
     }
     &__input {
