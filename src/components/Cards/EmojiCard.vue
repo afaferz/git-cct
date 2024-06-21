@@ -15,9 +15,11 @@
                     :data-clipboard="emojiItem.img"
                     @click="generateCommit(emojiItem.img, emojiItem.name)"
                 >
-                    <span>
-                        {{ emojiItem.img }}
-                    </span>
+                    <div>
+                        <span>
+                            {{ emojiItem.img }}
+                        </span>
+                    </div>
                 </button>
             </figure>
             <div class="card-description" tabindex="-1">
@@ -131,9 +133,10 @@ export default defineComponent({
     border-top-right-radius: 10px;
     position: relative;
     width: 100%;
+    margin: 0 auto;
     button {
         cursor: pointer;
-        font-size: 5.5rem;
+        font-size: 4.5rem;
         left: 50%;
         position: absolute;
         transform: translate(-50%, -50%);
@@ -143,22 +146,30 @@ export default defineComponent({
         background-color: transparent;
         border: none;
         transition: all 0.4s ease-in-out;
-        span {
+        div {
             transition: all 0.4s ease-in-out;
             position: relative;
             top: 0;
             font-family: Apple Color Emoji, Segoe UI Emoji, Noto Color Emoji,
                 Segoe UI Symbol, Android Emoji, EmojiSymbols;
+            display: flex;
+
+            width: 60px;
+            height: 60px;
+            transform-origin: bottom;
+            margin: 0 auto;
+            align-items: center;
+            justify-content: center;
+            & > span {
+                display: inline-block;
+                margin-bottom: 10px;
+            }
         }
     }
-    &:hover > button > span {
-        display: inline-block;
+    &:hover > button > div {
         box-shadow: 0px 5px 10px rgba($color: #020202, $alpha: 0.55);
         padding: 1rem;
         border-radius: 50%;
-        width: 60px;
-        height: 60px;
-        transform-origin: bottom;
         top: -50%;
     }
 }

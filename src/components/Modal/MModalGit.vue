@@ -10,10 +10,8 @@
             "
         >
             <div class="modal" @keypress.ctrl.enter="copyCommit">
-                <div class="modal-preview">
-                    <span class="preview__title">PRÉVIA</span>
-                </div>
                 <div class="git-commit">
+                    <span>Prévia</span>
                     <code>
                         {{ fullCommit }}
                     </code>
@@ -32,14 +30,16 @@
                     </button>
                 </fieldset>
 
-                <fieldset class="fieldset">
+                <fieldset class="fieldset fieldset--scope">
                     <legend>ESCOPO</legend>
                     <input
                         class="fieldset__input"
                         type="text"
                         v-model="scope"
                     />
-                    <button class="fieldset__button--clear" @click="scope = ''">LIMPAR</button>
+                    <button class="fieldset__button--clear" @click="scope = ''">
+                        LIMPAR
+                    </button>
                 </fieldset>
 
                 <span class="preview__command">
@@ -47,13 +47,7 @@
                 </span>
                 <fieldset class="fieldset">
                     <legend>MENSAGEM</legend>
-                    <textarea
-                        name=""
-                        id=""
-                        cols="30"
-                        rows="10"
-                        v-model="message"
-                    ></textarea>
+                    <textarea v-model="message" name="" id=""></textarea>
                 </fieldset>
                 <button
                     @click.self="copyCommit"
@@ -165,6 +159,9 @@ export default defineComponent({
         width: 45vw;
         height: 85vh;
     }
+    @media screen and (max-width: 600px) {
+        height: 90vh;
+    }
 }
 .modal-enter-to .modal {
     animation: slide 0.3s;
@@ -201,11 +198,27 @@ export default defineComponent({
     margin-bottom: 15px;
 }
 .git-commit {
-    box-sizing: border-box;
-    font-size: 2rem;
-    word-wrap: break-word;
-    max-height: 200px;
-    overflow: scroll;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    & > span {
+        display: flex;
+        width: max-content;
+        margin-bottom: 6px;
+        font-size: 2rem;
+        background: #ccc;
+        border-radius: 4px;
+        font-weight: bold;
+        color: #121212;
+        padding: 5px;
+    }
+    & > code {
+        box-sizing: border-box;
+        font-size: 1.55rem;
+        word-wrap: break-word;
+        max-height: 150px;
+        overflow-y: auto;
+    }
 }
 
 .fieldset {
@@ -215,11 +228,17 @@ export default defineComponent({
     margin: 1.57rem 0;
     border-color: #2c3e50;
     box-sizing: border-box;
+    &--scope {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 5px;
+    }
     &__button {
         all: unset;
         padding: 1rem;
         color: #2c3e50;
-        width: 45%;
+        width: max-content;
         text-align: center;
         font-size: 1.5rem;
         font-weight: 700;
@@ -231,20 +250,21 @@ export default defineComponent({
         }
     }
     &__button--clear {
-        height: 100%;
-        margin-left: 10px;
-        padding: 0 15px;
+        height: max-content;
+        padding: 1rem;
         color: #fefefe;
         font-weight: 700;
         background-color: rgb(219, 81, 81);
         border: none;
         cursor: pointer;
+        margin-left: auto;
         &:hover {
             background-color: red;
         }
     }
     &__input {
-        width: 45%;
+        width: 100%;
+        height: max-content;
         padding: 1rem;
     }
     legend {

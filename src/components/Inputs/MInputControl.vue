@@ -11,12 +11,12 @@
             <kbd>Ctrl I</kbd>
         </div>
         <div class="display-list-wrapper">
-            <div class="display-list__button">
+            <!-- <div class="display-list__button">
                 <button tabindex="-1">AS</button>
             </div>
             <div class="display-list__button">
                 <button tabindex="-1">AS</button>
-            </div>
+            </div> -->
         </div>
     </div>
 </template>
